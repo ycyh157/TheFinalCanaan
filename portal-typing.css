@@ -1,0 +1,8 @@
+/* Portal typing styles */
+.portal-typing{ margin:18px auto 6px; max-width:720px; text-align:left; min-height:180px }
+.portal-line{ margin:.4em 0; color:#dce6f2; font-size:18px; line-height:1.8 }
+.portal-caret{ display:inline-block; width:.6em; border-bottom:2px solid #d6b673; animation:bl .8s step-end infinite }
+@keyframes bl { 50% { opacity:0 } }
+.portal-controls{ margin-top:16px; display:flex; gap:10px; justify-content:center }
+.portal-skip{ background:transparent; color:#cbd7e4; border:1px dashed rgba(214,182,115,.5); padding:8px 12px; border-radius:10px; cursor:pointer }
+.portal-skip:hover{ color:#fff; border-style:solid }
