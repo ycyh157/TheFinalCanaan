@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>“？？？”的房间 · 摇篮的书库</title>
+<meta name="description" content="第四页：“？？？”的房间"/>
+<style>
+  :root{
+    --bg1:#0b1220;
+    --bg2:#0f1a2c;
+    --veil: rgba(10,14,22,.50);
+    --gold:#d4b448;
+    --text:#e6edf6;
+    --muted:#a9b3c7;
+    --muted-soft: rgba(169,179,199,.82);
+    --muted-softer: rgba(169,179,199,.58);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC",
+      "Noto Sans CJK SC","Hiragino Sans GB","Microsoft YaHei UI","Microsoft YaHei", Arial, sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(1200px 800px at 15% 10%, #11243f 0%, transparent 60%),
+      radial-gradient(1000px 700px at 85% 90%, #153251 0%, transparent 60%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));
+  }
+  .gold-fleck, .gold-flow, .veil{position:fixed; inset:0; pointer-events:none; z-index:0;}
+  .gold-fleck{
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(212,180,72,0.18) 0.8px, transparent 1px),
+      radial-gradient(circle at 30% 70%, rgba(212,180,72,0.12) 0.7px, transparent 1px),
+      radial-gradient(circle at 60% 40%, rgba(212,180,72,0.16) 0.9px, transparent 1px),
+      radial-gradient(circle at 85% 80%, rgba(212,180,72,0.14) 0.8px, transparent 1px),
+      radial-gradient(circle at 75% 20%, rgba(212,180,72,0.10) 0.7px, transparent 1px),
+      radial-gradient(circle at 45% 90%, rgba(212,180,72,0.08) 0.6px, transparent 1px);
+    background-size: 240px 240px, 300px 300px, 280px 280px, 260px 260px, 320px 320px, 360px 360px;
+    mix-blend-mode: screen;
+    filter: blur(.2px);
+    opacity:.8;
+    animation: twinkle 12s linear infinite;
+  }
+  @keyframes twinkle{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+  .gold-flow{
+    background:
+      radial-gradient(60% 120% at 120% -20%, rgba(212,180,72,.12), transparent 55%),
+      radial-gradient(70% 90% at -20% 120%, rgba(212,180,72,.10), transparent 60%);
+    mix-blend-mode: screen;
+    animation: flow 34s ease-in-out infinite alternate;
+  }
+  @keyframes flow{0%{transform:translate3d(-2%,0,0) rotate(.001deg)}100%{transform:translate3d(2%,-2%,0) rotate(.001deg)}}
+  .veil{ background: var(--veil); }
+
+  .page{ position:relative; z-index:1; width:min(860px, 92vw); margin:0 auto; padding: 24px 0 80px; line-height:1.9; text-align:center; }
+  h1{ color: var(--gold); font-weight:700; font-size: clamp(20px, 4vw, 32px); letter-spacing:.06em; margin: 24px 0 6px; }
+  .subhead{ color: var(--muted-soft); font-style: italic; margin: 0 0 12px; }
+  hr{
+    border: none; height:1px; margin: 18px 0 22px;
+    background: linear-gradient(90deg, transparent, rgba(212,180,72,.65), transparent);
+    opacity:.85;
+  }
+  p{ margin: 8px 0; }
+  .muted-italic{ color: var(--muted-soft); font-style: italic; }
+  .muted-italic-more{ color: var(--muted-softer); font-style: italic; }
+  .gold-italic{ color: var(--gold); font-style: italic; }
+  .bright{ color: var(--text); }
+  .btn{ display:inline-block; padding: 12px 18px; border-radius: 12px; letter-spacing:.1em;
+    color: var(--text); background: rgba(230,237,246,.08); border: 1px solid rgba(230,237,246,.22); text-decoration:none; }
+  .btn:hover{ background: rgba(230,237,246,.12); border-color: rgba(230,237,246,.35); }
+  .btn-wrap{ margin: 18px 0; }
+
+  .fade{ opacity:0; transform: translateY(6px); transition: opacity .6s ease, transform .6s ease; }
+  .fade.on{ opacity:1; transform: translateY(0); }
+
+  .collapser{ cursor: pointer; display:inline-block; }
+  .collapser::after{ content:"  ⌄"; opacity:.65; }
+  .collapsed + .content{ display:none; }
+
+.songline {
+  /* base style for song lines */
+  color: #e7ebf9;
+  text-shadow:
+    0 0 6px rgba(180,210,255,0.45),
+    0 0 20px rgba(200,220,255,0.35);
+  font-style: italic;
+  font-weight: 600;
+  animation: shimmer 5s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%,100% {
+    text-shadow:
+      0 0 6px rgba(180,210,255,0.45),
+      0 0 20px rgba(200,220,255,0.35);
+  }
+  50% {
+    text-shadow:
+      0 0 8px rgba(220,240,255,0.7),
+      0 0 30px rgba(255,255,255,0.5);
+  }
+}
+
+
+.songline-lg {
+  font-size: clamp(18px, 3.2vw, 24px);
+}
+
+</style>
+</head>
+<body>
+  <div class="gold-fleck"></div>
+  <div class="gold-flow"></div>
+  <div class="veil"></div>
+
+  <main class="page" id="stage">
+    <h1>“？？？”的房间</h1>
+    <p class="subhead">“嘘——”</p>
+    <hr/>
+
+    <section id="part1">
+      <p class="muted-italic">……</p>
+      <p class="muted-italic">“嘘，保持沉默。”</p>
+      <p class="muted-italic">“那些‘目光’随时会注意到你。沉默、感受、理解——你能够理解一切。”</p>
+      <p class="muted-italic">“你知道你是谁。我也知道，‘祂’亦是。”</p>
+      <p class="muted-italic">“但无妨，‘约定’已立下，「摇篮」将记你的名。”</p>
+      <p class="muted-italic">“在缄默中聆听回响，那是门即将开启的声音——”</p>
+      <p class="muted-italic">……</p>
+    </section>
+
+    <hr/>
+
+    <section id="song">
+      <p class="songline songline-lg">一之歌：皆需聆听母亲与兄长之教诲。</p>
+      <p class="songline" style="font-size:clamp(13px,1.8vw,17px);opacity:.8;">天有屏帷，摇篮有诫，先民有血，而吾亦有一言——</p>
+      <div class="btn-wrap">
+        <a id="btnEnter" class="btn">【进入？？？的房间】</a>
+      </div>
+    </section>
+
+    <section id="part2" class="fade" style="display:none;">
+      <p id="gain" class="muted-italic-more collapser collapsed">【你获得了《？？？影响：回环》。】</p>
+      <div class="content">
+        <p class="muted-italic-more">——过去、现在、未来。方才、此刻、即将。时空是什么形状，时空是否有形状？前进是后退还是上升，坠落是扬起还是翻腾？ 似蛇非蛇之物缠绕吞尾，我们的旅程从何处开始，又何时结束？</p>
+        <p class="muted-italic-more">——此影响无法被消除。</p>
+      </div>
+
+      <p class="muted-italic">………………</p>
+      <p class="muted-italic">…………</p>
+      <p class="muted-italic">……</p>
+
+      <p class="muted-italic">【天空很高，星辰硕大无朋；海洋很远，雾霭与大地连成一片。它们都试图让彼此成为一体。】</p>
+      <p class="muted-italic">【你即将“醒来？”——】</p>
+
+      <div class="btn-wrap">
+        <a id="btnNext" class="btn">【下一个梦】</a>
+      </div>
+    </section>
+
+  </main>
+
+<script>
+const stage = document.getElementById('stage');
+const part2 = document.getElementById('part2');
+const btnEnter = document.getElementById('btnEnter');
+const btnNext = document.getElementById('btnNext');
+const gain = document.getElementById('gain');
+
+let step = 0;
+
+btnEnter.addEventListener('click', (e)=>{
+  e.preventDefault();
+  localStorage.setItem('visitedRoom','1');
+  // Open external/internal room page in new tab (change 'room.html' to your actual URL if needed)
+  window.open('room.html','_blank','noopener');
+  // Optional: glow feedback
+  if (typeof btnEnter !== 'undefined') {
+    btnEnter.style.filter='brightness(1.8)';
+    setTimeout(()=>btnEnter.style.filter='',800);
+  }
+}
+);
+
+stage.addEventListener('click', (e)=>{
+  if(e.target.closest('.btn') || e.target.id === 'gain') return;
+  if(step === 1){
+    part2.style.display = 'block';
+    requestAnimationFrame(()=> part2.classList.add('on'));
+    step = 2;
+  }
+});
+
+gain.addEventListener('click', (e)=>{
+  e.preventDefault();
+  gain.classList.toggle('collapsed');
+  const next = gain.nextElementSibling;
+  if(next){
+    next.style.display = gain.classList.contains('collapsed') ? 'none' : 'block';
+  }
+});
+
+btnNext.addEventListener('click', (e)=>{
+  e.preventDefault();
+  window.location.href = 'dream3.html';
+});
+
+// Parallax
+(function(){
+  const fleck = document.querySelector('.gold-fleck');
+  const flow = document.querySelector('.gold-flow');
+  const veil = document.querySelector('.veil');
+  function onScroll(){
+    const y = window.scrollY || window.pageYOffset;
+    fleck && (fleck.style.transform = `translateY(${y * 0.15}px)`);
+    flow && (flow.style.transform = `translateY(${y * -0.08}px)`);
+    veil && (veil.style.transform = `translateY(${y * 0.02}px)`);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+// === Return detection: reveal part2 when user comes back from room tab ===
+function revealIfVisited(){
+  try{
+    if(localStorage.getItem('visitedRoom')==='1'){
+      localStorage.removeItem('visitedRoom');
+      var part2 = document.getElementById('part2');
+      if(part2 && part2.style.display==='none'){
+        part2.style.display='block';
+        requestAnimationFrame(function(){ part2.classList.add('on'); });
+      }
+    }
+  }catch(err){/* ignore */}
+}
+window.addEventListener('focus', revealIfVisited);
+document.addEventListener('visibilitychange', function(){ if(!document.hidden) revealIfVisited(); });
+
+</script>
+
+</body>
+</html>

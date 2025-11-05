@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>？？？ · 第一部分</title>
+<meta name="description" content="逐句显现文本（简洁版）"/>
+<style>
+  :root{
+    --bg1:#0b1220;
+    --bg2:#0f1a2c;
+    --veil: rgba(10,14,22,.50);
+    --gold:#d4b448;
+    --text:#e6edf6;
+    --muted:#9fb0c7;
+    --red:#e15b64;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC",
+      "Noto Sans CJK SC","Hiragino Sans GB","Microsoft YaHei UI","Microsoft YaHei", Arial, sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(1200px 800px at 15% 10%, #11243f 0%, transparent 60%),
+      radial-gradient(1000px 700px at 85% 90%, #153251 0%, transparent 60%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));
+    overflow:hidden;
+  }
+  .gold-fleck, .gold-flow, .veil{position:fixed; inset:0; pointer-events:none;}
+  .gold-fleck{
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(212,180,72,0.18) 0.8px, transparent 1px),
+      radial-gradient(circle at 30% 70%, rgba(212,180,72,0.12) 0.7px, transparent 1px),
+      radial-gradient(circle at 60% 40%, rgba(212,180,72,0.16) 0.9px, transparent 1px),
+      radial-gradient(circle at 85% 80%, rgba(212,180,72,0.14) 0.8px, transparent 1px),
+      radial-gradient(circle at 75% 20%, rgba(212,180,72,0.10) 0.7px, transparent 1px),
+      radial-gradient(circle at 45% 90%, rgba(212,180,72,0.08) 0.6px, transparent 1px);
+    background-size: 240px 240px, 300px 300px, 280px 280px, 260px 260px, 320px 320px, 360px 360px;
+    mix-blend-mode: screen;
+    filter: blur(.2px);
+    opacity:.8;
+    animation: twinkle 12s linear infinite;
+  }
+  @keyframes twinkle{
+    0%{transform:translateY(0px)}
+    50%{transform:translateY(-6px)}
+    100%{transform:translateY(0px)}
+  }
+  .gold-flow{
+    background:
+      radial-gradient(60% 120% at 120% -20%, rgba(212,180,72,.12), transparent 55%),
+      radial-gradient(70% 90% at -20% 120%, rgba(212,180,72,.10), transparent 60%);
+    mix-blend-mode: screen;
+    animation: flow 34s ease-in-out infinite alternate;
+  }
+  @keyframes flow{
+    0%{transform: translate3d(-2%, 0, 0) rotate(0.001deg); filter:hue-rotate(0deg) saturate(1);}
+    100%{transform: translate3d(2%, -2%, 0) rotate(0.001deg); filter:hue-rotate(-8deg) saturate(1.05);}
+  }
+  .veil{ background: var(--veil); }
+
+  .shell{position:relative; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 28px 16px; text-align:center;}
+  /* 起始按钮 */
+  .start-btn{
+    display:inline-block; padding: 16px 28px; border-radius: 999px;
+    color: var(--text); letter-spacing:.12em; text-decoration:none;
+    background: rgba(230,237,246,.06); border: 1px solid rgba(230,237,246,.35);
+    box-shadow: 0 8px 22px rgba(0,0,0,.25), inset 0 0 0 1px rgba(255,255,255,.02);
+    position:relative; overflow:hidden;
+  }
+  .start-btn:hover{ background: rgba(230,237,246,.10); border-color: rgba(230,237,246,.55); }
+  .start-btn::before{
+    content:""; position:absolute; inset:-70% -20%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.35) 45%, rgba(255,255,255,.9) 50%, rgba(255,255,255,.35) 55%, transparent 100%);
+    transform: translateX(-120%) rotate(15deg);
+    animation: shimmer 4s ease-in-out infinite; opacity:.65; pointer-events:none;
+  }
+  @keyframes shimmer{
+    0%{ transform: translateX(-120%) rotate(15deg); }
+    48%{ transform: translateX(120%) rotate(15deg); }
+    100%{ transform: translateX(120%) rotate(15deg); }
+  }
+
+  /* 文本 */
+  .out{
+    display:none;
+    font-size: clamp(16px, 2.2vw, 22px);
+    line-height:1.9;
+    color: var(--gold);
+    white-space: pre-wrap;
+    text-align:center;
+    width: min(860px, 90vw);
+    margin: 0 auto;
+  }
+  .em{ color: var(--red); }
+  .cursor{ display:inline-block; width: 0.72em; margin-left:.06em; border-bottom: 2px solid rgba(230,237,246,.7);
+           animation: blink 1.2s steps(1,end) infinite; transform: translateY(1px); }
+  @keyframes blink{ 50%{ border-color: transparent; } }
+
+  .hint{ position: absolute; bottom: 18px; left:50%; transform: translateX(-50%);
+         color: var(--muted); font-size:13px; letter-spacing:.08em; user-select:none; }
+
+  /* 结尾按钮 */
+  .open-wrap{ display:none; margin-top:18px; opacity:0; transition: opacity .6s ease; }
+  .open-btn{
+    display:inline-block; padding: 12px 18px; border-radius: 12px; letter-spacing:.1em;
+    color: var(--text); background: rgba(230,237,246,.08); border: 1px solid rgba(230,237,246,.22); text-decoration:none;
+  }
+  .open-btn:hover{ background: rgba(230,237,246,.12); }
+</style>
+</head>
+<body>
+  <div class="gold-fleck"></div>
+  <div class="gold-flow"></div>
+  <div class="veil"></div>
+
+  <div class="shell" id="stage">
+    <a id="start" class="start-btn">【？？？】</a>
+    <div id="out" class="out" aria-live="polite"></div>
+    <div id="openWrap" class="open-wrap">
+      <a id="openBtn" class="open-btn">【（睁眼）】</a>
+    </div>
+    <div class="hint" id="hint">点击「？？？」开始 · 点击空白继续（空格/→ 下一句）</div>
+  </div>
+
+<script>
+// 文本：金色；*...* 片段变红
+const LINES_RAW = [
+  "……",
+  "…………",
+  "………………",
+  "【察觉到「本源因子」的存在。察觉到「恩典」的存在。*豁免——*】",
+  "【察觉到「摇篮」的约定。*豁免——*】",
+  "【察觉到升格的秘示。*豁免——*】",
+  "【缄默法则生效中。*你正在被注视。豁免——*】",
+  "【察觉到「大地梦境」。*梦境已歪曲——*】",
+  "*【察@*%￥#……@觉到“？？？”&*（#@￥#*……*豁%￥██&#*……豁免￥%……%##*？？？——…………】*",
+  "*【你听到了“？？？的低语”——】*",
+  "*“请睁开双眼。”*"
+];
+
+const startBtn = document.getElementById('start');
+const out = document.getElementById('out');
+const hint = document.getElementById('hint');
+const openWrap = document.getElementById('openWrap');
+const openBtn = document.getElementById('openBtn');
+const stage = document.getElementById('stage');
+
+let i = -1;
+let typing = false;
+let autoplay = false;
+let started = false;
+
+function toHTML(line){
+  const t = line.trim();
+  // Full-line red rule: if the whole line is wrapped by * ... * (even if it contains inner *), paint entire line red.
+  if (t.startsWith('*') && t.endsWith('*')){
+    // Escape HTML first, then strip ALL asterisks.
+    const escAll = t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    const stripped = escAll.slice(1, -1).replace(/\*/g, '');
+    return '<span class="em">' + stripped + '</span>';
+  }
+  // Otherwise, only paint segments between *...* red
+  const esc = t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  return esc.replace(/\*([^*]+)\*/g, '<span class="em">$1</span>');
+}
+
+function typeLine(html){
+  typing = true;
+  out.innerHTML = '';
+  // 纯文本长度用于逐字效果
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html.replace(/<[^>]*>/g, '');
+  const plain = tmp.textContent || tmp.innerText || '';
+  let p = 0;
+  const speed = 26;
+  function tick(){
+    const visible = plain.slice(0,p);
+    out.innerHTML = '<span>'+visible+'</span><span class="cursor"></span>';
+    p++;
+    if(p<=plain.length){
+      setTimeout(tick, speed);
+    }else{
+      out.innerHTML = html;
+      typing = false;
+      if(i === LINES_RAW.length - 1){
+        const DELAY = 1200; // ms
+        setTimeout(()=>{
+          openWrap.style.display = 'block';
+          openWrap.style.opacity = '0';
+          requestAnimationFrame(()=>{ openWrap.style.opacity = '1'; });
+        }, DELAY);
+      }
+    }
+  }
+  tick();
+}
+
+function showNext(){
+  if(!started) return;
+  if(typing) return;
+  if(i < LINES_RAW.length - 1){
+    i++;
+    typeLine(toHTML(LINES_RAW[i]));
+  }
+}
+
+startBtn.addEventListener('click', ()=>{
+  if(started) return;
+  started = true;
+  startBtn.style.display = 'none';
+  out.style.display = 'block';
+  hint.textContent = '点击空白处继续 · 空格/→ 下一句';
+  showNext();
+});
+
+stage.addEventListener('click', (e)=>{
+  if(e.target.closest('.open-btn') || e.target.closest('.start-btn')) return;
+  showNext();
+});
+document.addEventListener('keydown', (e)=>{
+  if(!started) return;
+  if(e.key === ' ' || e.key === 'ArrowRight' || e.key === 'Enter'){ e.preventDefault(); showNext(); }
+});
+openBtn.addEventListener('click', ()=>{
+  window.location.href = 'dream1.html'; // 改成你的下一页
+});
+</script>
+</body>
+</html>

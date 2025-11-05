@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>第一梦：“钟声” · 摇篮的书库</title>
+<meta name="description" content="第一梦：钟声"/>
+<style>
+  :root{
+    --bg1:#0b1220;
+    --bg2:#0f1a2c;
+    --veil: rgba(10,14,22,.50);
+    --gold:#d4b448;
+    --text:#e6edf6;
+    --muted:#a9b3c7;
+    --muted-soft: rgba(169,179,199,.82);
+    --muted-softer: rgba(169,179,199,.48); /* 更低透明度 */
+    --blue:#7aa6ff;
+    --red:#e15b64;
+    --deep:#000;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC",
+      "Noto Sans CJK SC","Hiragino Sans GB","Microsoft YaHei UI","Microsoft YaHei", Arial, sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(1200px 800px at 15% 10%, #11243f 0%, transparent 60%),
+      radial-gradient(1000px 700px at 85% 90%, #153251 0%, transparent 60%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));
+  }
+  .gold-fleck, .gold-flow, .veil{position:fixed; inset:0; pointer-events:none; z-index:0;}
+  .gold-fleck{
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(212,180,72,0.18) 0.8px, transparent 1px),
+      radial-gradient(circle at 30% 70%, rgba(212,180,72,0.12) 0.7px, transparent 1px),
+      radial-gradient(circle at 60% 40%, rgba(212,180,72,0.16) 0.9px, transparent 1px),
+      radial-gradient(circle at 85% 80%, rgba(212,180,72,0.14) 0.8px, transparent 1px),
+      radial-gradient(circle at 75% 20%, rgba(212,180,72,0.10) 0.7px, transparent 1px),
+      radial-gradient(circle at 45% 90%, rgba(212,180,72,0.08) 0.6px, transparent 1px);
+    background-size: 240px 240px, 300px 300px, 280px 280px, 260px 260px, 320px 320px, 360px 360px;
+    mix-blend-mode: screen;
+    filter: blur(.2px);
+    opacity:.8;
+    animation: twinkle 12s linear infinite;
+  }
+  @keyframes twinkle{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+  .gold-flow{
+    background:
+      radial-gradient(60% 120% at 120% -20%, rgba(212,180,72,.12), transparent 55%),
+      radial-gradient(70% 90% at -20% 120%, rgba(212,180,72,.10), transparent 60%);
+    mix-blend-mode: screen;
+    animation: flow 34s ease-in-out infinite alternate;
+  }
+  @keyframes flow{0%{transform:translate3d(-2%,0,0) rotate(.001deg)}100%{transform:translate3d(2%,-2%,0) rotate(.001deg)}}
+  .veil{ background: var(--veil); }
+
+  .page{ position:relative; z-index:1; width:min(860px, 92vw); margin:0 auto; padding: 24px 0 80px; line-height:1.9; text-align:center; }
+  h1{ color: var(--gold); font-weight:700; font-size: clamp(20px, 4vw, 32px); letter-spacing:.06em; margin: 24px 0 6px; }
+  .subhead{ color: var(--muted-softer); font-style: italic; margin: 0 0 12px; }
+  hr{
+    border: none; height:1px; margin: 18px 0 22px;
+    background: linear-gradient(90deg, transparent, rgba(212,180,72,.65), transparent);
+    opacity:.85;
+  }
+
+  .bracket{ color: var(--muted); opacity:.88; font-style: italic; }
+  .quote{ color: var(--gold); font-style: italic; }
+  .strong{ font-weight:700; }
+  .red{ color: var(--red); }
+  .red.soft{ color: rgba(225,91,100,.86); font-style: italic; }
+  .deep{ color: var(--deep); }
+  .center{ text-align:center; }
+
+  .chant{
+    margin: 14px auto 6px; border: 1px solid rgba(122,166,255,.35); background: rgba(122,166,255,.06);
+    border-radius: 14px; padding: 14px 16px; color: var(--blue);
+    font-style: italic; font-family: "KaiTi","STKaiti","KaiTi_GB2312","Noto Serif SC", serif;
+    width: min(760px, 90%);
+  }
+  .chant p{ margin: 6px 0; opacity:0; transform: translateY(6px); animation: chantFade 1s ease forwards; }
+  .chant p:nth-child(1){ animation-delay: .0s; }
+  .chant p:nth-child(2){ animation-delay: .12s; }
+  .chant p:nth-child(3){ animation-delay: .24s; }
+  .chant p:nth-child(4){ animation-delay: .36s; }
+  .chant p:nth-child(5){ animation-delay: .48s; }
+  @keyframes chantFade{ to{ opacity:1; transform: translateY(0);} }
+  .note{ font-style: italic; color: var(--muted-soft); }
+
+  p{ margin: 8px 0; }
+  .btn{ display:inline-block; padding: 12px 18px; border-radius: 12px; letter-spacing:.1em;
+    color: var(--text); background: rgba(230,237,246,.08); border: 1px solid rgba(230,237,246,.22); text-decoration:none; }
+  .btn:hover{ background: rgba(230,237,246,.12); border-color: rgba(230,237,246,.35); }
+  .btn-wrap{ margin: 18px 0; }
+
+  .muted-italic{ color: var(--muted-softer); font-style: italic; }
+
+  .fade{ opacity:0; transform: translateY(6px); transition: opacity .6s ease, transform .6s ease; }
+  .fade.on{ opacity:1; transform: translateY(0); }
+</style>
+</head>
+<body>
+  <div class="gold-fleck"></div>
+  <div class="gold-flow"></div>
+  <div class="veil"></div>
+
+  <main class="page">
+    <h1>第一梦：“钟声”</h1>
+    <p class="subhead">【你接触到了“梦境”。】</p>
+    <hr/>
+
+    <p class="bracket">【你正坐于长桌一端。】</p>
+    <p class="bracket">【烛火过于闪耀，你无法目视前方。】</p>
+    <p class="bracket">【流动变幻的黑暗中，有模糊的声音传来。】</p>
+    <p class="quote">“陆（吾？）之子。”</p>
+    <p class="quote">“迦南之子。”</p>
+    <p class="quote">“此刻，正于母亲胸膛上安睡吗？”</p>
+    <p class="quote">“黑夜，与梦，是否会令人，感到不安？”</p>
+    <p class="quote">“万物静谧中，风声，是否宛若叹息？”</p>
+    <p class="quote">“那是，谁在叹息？”</p>
+    <p class="center">……</p>
+
+    <p class="subhead">【你接触到了《梦境：大地梦境》】</p>
+
+    <section class="chant">
+      <p class="note">（歌声）</p>
+      <p>♪一位神明，自天降临♪</p>
+      <p>♪脚踩碧波，头顶群星 ♪</p>
+      <p>♪浪涛在祂脚下凝聚，大地升起♪</p>
+      <p>♪祂向万物应许，此地永淌鲜奶与蜜♪</p>
+    </section>
+
+    <p class="quote">“彼时，此世一片汪洋。”</p>
+    <p class="bracket">【世界昏暗无光。一望无际处，海洋寂静若死。】</p>
+    <p class="quote">“一位神明，自天降临。”</p>
+    <p class="bracket">【一点星光，辉煌璀璨。从远天出现，翩然落向海面。】</p>
+    <p class="quote">“大地于祂脚尖铺开。万物自祂光辉中诞生。”</p>
+    <p class="quote">“天空与海洋，开始为祂（它）震颤。”</p>
+    <p class="quote">“——此地，即是迦南。”</p>
+    <p class="bracket">【陆地广阔，万物蓬勃生长，一片欣欣向荣。】</p>
+    <p class="quote strong">“故乡迦南。神明迦南。母亲迦南。”</p>
+    <p class="bracket">【在寂静而无声的黑暗中。那世界的光辉令人安详。】</p>
+
+    <hr/>
+
+    <p class="bracket">【烛火摇曳间，幻觉归于沉寂。】</p>
+    <p class="bracket">【你意识混沌，如梦未醒。】</p>
+    <p class="bracket">【模糊耳语近在咫尺，悠长温存，催人入眠。】</p>
+
+    <p class="quote">“陆（吾？）之子。”</p>
+    <p class="quote">“迦南之子。”</p>
+    <p class="quote">“可还记得，母亲为摇篮，唱出的歌？”</p>
+    <p class="quote">“可还记得，母亲抚摸你的，温柔的手？”</p>
+    <p class="quote">“如今，母亲已沉沉酣睡。”</p>
+    <p class="quote">“昏黄旧日中，‘梦境’不断绵延。”</p>
+    <p class="quote">“上至‘天空’，下垂‘深海’。”</p>
+    <p class="quote">“「大地（母亲）」怀抱众生，万千喜悦，万千期待，由古至今，从他至你。”</p>
+    <p class="quote">“……不能忘记啊。”</p>
+    <p class="quote">“母亲，深爱着你。”</p>
+    <p class="quote strong red">“母亲，深爱着你……”</p>
+
+    <hr/>
+
+    <p class="bracket red soft">【察觉到“存在”的临近。】</p>
+    <p class="quote">“人之子。”</p>
+    <p class="quote">“陆之子。”</p>
+    <p class="quote">“迦南之子。”</p>
+    <p class="quote">“警惕天空。”</p>
+    <p class="quote">“警惕海洋。”</p>
+    <p class="quote">“警惕梦境！”</p>
+    <p class="quote">“切莫沉沦。”</p>
+    <p class="quote">“切莫追觅。”</p>
+    <p class="quote">“切莫聆听他乡之音！”</p>
+    <p class="quote">“记得母亲。记得母亲！记住母亲！！！”</p>
+    <p class="quote deep">“█████！███！……███……██——”</p>
+    <p class="center">……</p>
+    <p class="bracket">【光，渐次熄灭。】</p>
+    <p class="center">……</p>
+    <p class="bracket">【一线死寂中，祂？轻声耳语。】</p>
+
+    <section>
+      <p class="quote ">“██之子。” <span class="red">（“██之子。”）</span></p>
+      <p class="quote ">“请聆听。” <span class="red">（“请聆听。”）</span></p>
+      <p class="quote ">“请感受。” <span class="red">（“请遵循。”）</span></p>
+      <p class="quote ">“请理解。” <span class="red">（“不要理解。”）</span></p>
+      <p class="quote ">“……” <span class="red">（“……”）</span></p>
+      <p class="quote ">“请回应……” <span class="red">（“……请忘却。”）</span></p>
+      <p class="quote red">“汝名迦█……██……█…………”</p>
+    </section>
+
+    <p class="center">……</p>
+    <p class="center">…………</p>
+    <p class="center">………………</p>
+
+    <section class="strong red">
+      <p class="quote red">“█我█的█孩█子█。”</p>
+      <p class="quote red">“█汝█名█——███。”</p>
+      <p class="quote red">“「█母█亲█」，█愿█你█自█由█……”</p>
+    </section>
+
+      <p class="center ">………………</p>
+      <p class="center ">…………</p>
+      <p class="center ">……</p>
+
+    <p class="subhead">【你获得了《三分之一梦境？？回响：？？》】</p>
+
+    <div class="btn-wrap">
+      <a id="btnMore" class="btn">【……】</a>
+    </div>
+
+    <section id="more" class="fade" style="display:none;">
+      <p class="muted-italic">【你听到了“钟声”。有一扇“门”决定开启。】</p>
+      <p class="muted-italic">【顷刻间意识与视野内的一切构成都在土崩瓦解。】</p>
+      <p class="muted-italic">【你正在“运动”。你不知道这是“上升”还是“坠落”。】</p>
+
+      <div class="btn-wrap">
+        <a id="btnNext" class="btn">【下一个梦】</a>
+      </div>
+    </section>
+
+  </main>
+
+<script>
+// Reveal more block
+const btnMore = document.getElementById('btnMore');
+const more = document.getElementById('more');
+const btnNext = document.getElementById('btnNext');
+
+btnMore.addEventListener('click', (e)=>{
+  e.preventDefault();
+  btnMore.parentElement.style.display = 'none';
+  more.style.display = 'block';
+  requestAnimationFrame(()=>{ more.classList.add('on'); });
+});
+
+btnNext.addEventListener('click', (e)=>{
+  e.preventDefault();
+  // TODO: change to your next page
+  window.location.href = 'dream2.html';
+});
+
+// Parallax scrolling for background layers
+(function(){
+  const fleck = document.querySelector('.gold-fleck');
+  const flow = document.querySelector('.gold-flow');
+  const veil = document.querySelector('.veil');
+  function onScroll(){
+    const y = window.scrollY || window.pageYOffset;
+    fleck && (fleck.style.transform = `translateY(${y * 0.15}px)`);
+    flow && (flow.style.transform = `translateY(${y * -0.08}px)`);
+    veil && (veil.style.transform = `translateY(${y * 0.02}px)`);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+</script>
+
+</body>
+</html>

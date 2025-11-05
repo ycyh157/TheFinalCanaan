@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>第二梦：“歌谣” · 摇篮的书库</title>
+<meta name="description" content="第二梦：歌谣"/>
+<style>
+  :root{
+    --bg1:#0b1220;
+    --bg2:#0f1a2c;
+    --veil: rgba(10,14,22,.50);
+    --gold:#d4b448;
+    --text:#e6edf6;
+    --muted:#a9b3c7;
+    --muted-soft: rgba(169,179,199,.82);
+    --blue:#7aa6ff;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC",
+      "Noto Sans CJK SC","Hiragino Sans GB","Microsoft YaHei UI","Microsoft YaHei", Arial, sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(1200px 800px at 15% 10%, #11243f 0%, transparent 60%),
+      radial-gradient(1000px 700px at 85% 90%, #153251 0%, transparent 60%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));
+  }
+  .gold-fleck, .gold-flow, .veil{position:fixed; inset:0; pointer-events:none; z-index:0;}
+  .gold-fleck{
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(212,180,72,0.18) 0.8px, transparent 1px),
+      radial-gradient(circle at 30% 70%, rgba(212,180,72,0.12) 0.7px, transparent 1px),
+      radial-gradient(circle at 60% 40%, rgba(212,180,72,0.16) 0.9px, transparent 1px),
+      radial-gradient(circle at 85% 80%, rgba(212,180,72,0.14) 0.8px, transparent 1px),
+      radial-gradient(circle at 75% 20%, rgba(212,180,72,0.10) 0.7px, transparent 1px),
+      radial-gradient(circle at 45% 90%, rgba(212,180,72,0.08) 0.6px, transparent 1px);
+    background-size: 240px 240px, 300px 300px, 280px 280px, 260px 260px, 320px 320px, 360px 360px;
+    mix-blend-mode: screen;
+    filter: blur(.2px);
+    opacity:.8;
+    animation: twinkle 12s linear infinite;
+  }
+  @keyframes twinkle{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+  .gold-flow{
+    background:
+      radial-gradient(60% 120% at 120% -20%, rgba(212,180,72,.12), transparent 55%),
+      radial-gradient(70% 90% at -20% 120%, rgba(212,180,72,.10), transparent 60%);
+    mix-blend-mode: screen;
+    animation: flow 34s ease-in-out infinite alternate;
+  }
+  @keyframes flow{0%{transform:translate3d(-2%,0,0) rotate(.001deg)}100%{transform:translate3d(2%,-2%,0) rotate(.001deg)}}
+  .veil{ background: var(--veil); }
+
+  .page{ position:relative; z-index:1; width:min(860px, 92vw); margin:0 auto; padding: 24px 0 80px; line-height:1.9; text-align:center; }
+  h1{ color: var(--gold); font-weight:700; font-size: clamp(20px, 4vw, 32px); letter-spacing:.06em; margin: 24px 0 6px; }
+  .muted-italic{ color: var(--muted-soft); font-style: italic; }
+  hr{
+    border: none; height:1px; margin: 18px 0 22px;
+    background: linear-gradient(90deg, transparent, rgba(212,180,72,.65), transparent);
+    opacity:.85;
+  }
+  p{ margin:8px 0; }
+
+  /* 唱诗方框（蓝色楷体） */
+  .chant{
+    margin: 14px auto 6px; border: 1px solid rgba(122,166,255,.35); background: rgba(122,166,255,.06);
+    border-radius: 14px; padding: 14px 16px; color: var(--blue);
+    font-style: italic; font-family: "KaiTi","STKaiti","KaiTi_GB2312","Noto Serif SC", serif;
+    width: min(760px, 90%);
+  }
+  .chant p{ margin: 6px 0; opacity:0; transform: translateY(6px); animation: chantFade 1s ease forwards; }
+  .chant p:nth-child(1){ animation-delay: .0s; }
+  .chant p:nth-child(2){ animation-delay: .12s; }
+  .chant p:nth-child(3){ animation-delay: .24s; }
+  .chant p:nth-child(4){ animation-delay: .36s; }
+  .chant p:nth-child(5){ animation-delay: .48s; }
+  .chant p:nth-child(6){ animation-delay: .60s; }
+  @keyframes chantFade{ to{ opacity:1; transform: translateY(0);} }
+
+  /* 二之歌：火焰金红 */
+  .songline-fire{
+    background: linear-gradient(90deg, #ffdd77, #ff9966, #ffdd77);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: italic; font-weight: 700;
+    animation: flame 4s ease-in-out infinite;
+  }
+  .songline-lg{ font-size: clamp(18px, 3.2vw, 24px); }
+  .songline-sm{ font-size: clamp(14px, 2vw, 18px); opacity:.92; }
+  @keyframes flame{
+    0%,100% { filter: brightness(1); }
+    50% { filter: brightness(1.45); }
+  }
+
+  .btn{ display:inline-block; padding: 12px 18px; border-radius: 12px; letter-spacing:.1em;
+    color: var(--text); background: rgba(230,237,246,.08); border: 1px solid rgba(230,237,246,.22); text-decoration:none; }
+  .btn:hover{ background: rgba(230,237,246,.12); border-color: rgba(230,237,246,.35); }
+  .btn-wrap{ margin: 18px 0; }
+</style>
+</head>
+<body>
+  <div class="gold-fleck"></div>
+  <div class="gold-flow"></div>
+  <div class="veil"></div>
+
+  <main class="page">
+    <h1>第二梦：“歌谣”</h1>
+
+    <p class="muted-italic">【烛火摇曳，雪白的厅堂被光照亮，唱诗声在窗外遥遥送响，书页的棱角硌痛你的脸庞。】</p>
+    <p class="muted-italic">【在摇篮的深处，你蜷缩身体，双拳握紧，一个尚未诞生的梦境，正要准备苏醒。】</p>
+
+    <hr/>
+
+    <section class="chant">
+      <p class="muted-italic" style="color:inherit;">（唱诗声）</p>
+      <p>……</p>
+      <p>…………</p>
+      <p>“母亲啊，母亲。”</p>
+      <p>“大地它恒久繁盛，”</p>
+      <p>“孩子们永眷故乡。”</p>
+      <p>……</p>
+      <p>…………</p>
+    </section>
+
+    <p class="muted-italic">【它在眼前，它在心中，它在命运的辙上，它在起点与终点的环间。】</p>
+    <p class="muted-italic">【不论你见或未见，它都在此处——】</p>
+
+    <hr/>
+
+    <p class="songline-fire songline-lg">二之歌：就让孩子们来到我身边。</p>
+    <p class="songline-fire songline-sm">以永恒的时间，熔炼万物的沙尘。献给原初母亲，一切归于安息。</p>
+
+    <div class="btn-wrap">
+      <a id="btnOpen" class="btn">【打开《████的启示录》】</a>
+    </div>
+  </main>
+
+<script>
+document.getElementById('btnOpen').addEventListener('click', function(e){
+  e.preventDefault();
+  window.location.href = 'revelation.html';
+});
+
+(function(){
+  const fleck = document.querySelector('.gold-fleck');
+  const flow = document.querySelector('.gold-flow');
+  const veil = document.querySelector('.veil');
+  function onScroll(){
+    const y = window.scrollY || window.pageYOffset;
+    fleck && (fleck.style.transform = `translateY(${y * 0.15}px)`);
+    flow && (flow.style.transform = `translateY(${y * -0.08}px)`);
+    veil && (veil.style.transform = `translateY(${y * 0.02}px)`);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+</script>
+
+</body>
+</html>

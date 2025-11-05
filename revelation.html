@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>《████的启示录》 · 第一页</title>
+<style>
+:root{
+  --bg1:#0e1730; --bg2:#13213a;
+  --gold:#d8bf66; --text:#eaf0fa;
+  --muted-soft:rgba(169,179,199,.76);
+  --muted-softer:rgba(169,179,199,.52);
+  --glow-yellow:#ffe78a; --glow-blue:#cfe3ff; --glow-red:#ff6b6b;
+  --c-ben:#e8d88f; --c-jian:#a8d8ff; --c-an:#e39ca9;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 800px at 15% 10%,#162a4b 0,transparent 60%),
+    radial-gradient(1000px 700px at 85% 90%,#1a3a5e 0,transparent 60%),
+    linear-gradient(180deg,var(--bg1),var(--bg2));
+}
+.page{width:min(860px,92vw);margin:0 auto;padding:24px 0 96px;text-align:center;line-height:1.95;}
+h1{color:var(--gold);font-weight:700;font-size:clamp(22px,4vw,34px);letter-spacing:.06em;margin:24px 0 6px;}
+.sub{color:var(--muted-soft);font-weight:700;font-size:clamp(18px,2.8vw,24px);letter-spacing:.04em;margin:0 0 10px;}
+hr{border:none;height:1px;margin:18px 0 22px;background:linear-gradient(90deg,transparent,rgba(216,191,102,.72),transparent);}
+.gold-para{display:inline-block;text-align:left;max-width:760px;color:var(--gold);font-style:italic;margin:10px auto;text-indent:2em;}
+.muted-para{display:inline-block;text-align:left;max-width:760px;color:var(--muted-soft);font-style:italic;margin:10px auto;text-indent:2em;}
+.gain{color:var(--muted-softer);font-style:italic;display:block;max-width:760px;margin:10px auto;text-align:left;}
+/* 结尾：段落与文字都居中，分行显示 */
+.gold-ending{
+  display:block; width:min(760px,90%); margin:10px auto;
+  text-align:center; color:var(--gold); font-style:italic; text-indent:0;
+}
+.btn{
+  display:inline-block;padding:12px 18px;border-radius:12px;letter-spacing:.1em;
+  color:var(--text);background:rgba(234,240,250,.09);border:1px solid rgba(234,240,250,.28);
+  text-decoration:none;transition:transform .15s ease,background .2s ease,border-color .2s ease;
+}
+.btn:hover{transform:translateY(-1px);background:rgba(234,240,250,.13);border-color:rgba(234,240,250,.38);}
+.btn-wrap{margin:18px 0;}
+.fade{opacity:0;transform:translateY(6px);transition:opacity .6s ease,transform .6s ease;}
+.fade.on{opacity:1;transform:translateY(0);}
+
+/* 折叠标题 + 呼吸发光 */
+.fold{text-align:center;}
+.fold-title{
+  cursor:pointer;display:inline-block;margin:14px auto 6px;padding:6px 10px;border-radius:10px;
+  animation:breath 4s ease-in-out infinite alternate;
+}
+@keyframes breath{0%{filter:brightness(1)}50%{filter:brightness(1.35)}100%{filter:brightness(1)}}
+.fold-title::after{content:"  ⌄";opacity:.7}
+.fold-title[aria-expanded="true"]::after{content:"  ⌃"}
+.glow-yellow{color:var(--glow-yellow);text-shadow:0 0 6px rgba(255,231,138,.45),0 0 18px rgba(255,231,138,.35);}
+.glow-blue{color:var(--glow-blue);text-shadow:0 0 6px rgba(180,210,255,.45),0 0 18px rgba(200,220,255,.35);}
+.glow-red{color:var(--glow-red);text-shadow:0 0 7px rgba(255,107,107,.55),0 0 22px rgba(255,80,80,.35);}
+.fold-content{display:none;}
+.fold-content.on{display:block;animation:fade .5s ease forwards;}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* 词条内标题 + 正文配色 + 首行缩进（每段独立 <p>） */
+.fold-head{display:block;text-align:center;font-style:italic;margin:8px 0 6px;color:var(--gold);}
+.fold-body{display:inline-block;text-align:left;max-width:760px;margin:6px auto;text-indent:2em;}
+.fold-body.ben{color:var(--c-ben);}  /* 本格 柔金 */
+.fold-body.jian{color:var(--c-jian);} /* 缄默 淡青 */
+.fold-body.an{color:var(--c-an);}     /* 原始黑暗 暗红紫 */
+</style>
+</head>
+<body>
+<main class="page">
+  <h1>《████的启示录》</h1>
+  <div class="sub">第一页</div>
+  <hr/>
+
+  <!-- 第一屏（保留在页上） -->
+  <section id="p1">
+    <p class="gold-para">很荣幸见到你，我的同胞。这片大地未来的救主，亦或是……故乡的毁灭者。</p>
+    <p class="gold-para">当璀璨的恩典笼罩永岁蔷薇盛放的英伯伦、嚼食巨人尸骸的罗穆路斯高举黄金的酒杯、牧群狂奔在阿特米特高原闪光的银湖畔、最后的绿洲亚特兰亚姆在芬芳馥郁的硝烟中走向分裂之际，荒野正伴随大地的扬升，矗立起一座座刻满自由诗章的高塔……同胞，你的时代即将来临。</p>
+    <p class="gold-para"><strong>他们不会知晓。普通人不会知晓：</strong></p>
+    <p class="gold-para">世界的秘密如同子夜时分降临大地的浓雾般将我们笼罩。而在那缭绕雾气之后，我们的时代与命运正如同我们的生命一般，在逐渐走向衰亡。</p>
+    <p class="gold-para"><strong>他们不会告诉你。这个时代不会告诉你：</strong></p>
+    <p class="gold-para">我们安睡在母亲的怀抱之中，我们躲藏在家园的屋舍之内。母亲为我们抵挡威胁，长兄为我们阻拦风雨，我们一无所知，我们平凡至死。</p>
+    <p class="gold-para">可是你，我的同胞，此刻正伫立在这座殿堂之中的你，此刻已然揭开启示的你——这片大地未来的救主，亦或是故乡的毁灭者。你已聆听到母亲梦中的低吟，你已知晓长兄隐瞒的秘密。他们不会告诉你，这个世界不会告诉你，但你仍旧选择告诉你自己：</p>
+    <p class="gold-para"><strong>你将获得此世未有之真实，你将知悉此世未解之隐秘。你将踏入迷雾，你将凿开大地，你将在螺旋的梯上攀升，你将最终走向万千回响齐奏乐章的终极。</strong></p>
+    <p class="gold-para">待到那时，我们还会相见。以最终末的你的姿态，以最真实的我的面目，我们将在那崇高的殿堂再度相会。届时，所有谜题都将得到解答，一切闭锁之门都将被洞开。</p>
+    <p class="gold-para">我——由衷期待着那一日的到来。</p>
+    <div class="btn-wrap"><a class="btn" id="btnNext1">【下一页】</a></div>
+  </section>
+
+  <!-- 第二屏（点击第一个“下一页”出现） -->
+  <section id="p2" class="fade" style="display:none;">
+    <p class="muted-para">嘘——请保持沉默。</p>
+    <p class="muted-para">我即将为你呈现的，是你绝无可能在“真实”中获取到的“真实”。它不会出现在任何一本伪典之中。因此也请你保持绝对的沉默，在“神秘”得以在你的指尖流动之前，如同忘记它一般地将它封存。</p>
+    <p class="muted-para">未来你将与更多知识邂逅，你将直面更多“真实”，但须铭记：它们永远不是完全真实的，它们必然是存在问题而被歪曲的。而你此刻所获得的“真实”，将会是你校准一切的标杆，一切知识的基准，一切事物的原貌，一切秘密的起点。</p>
+    <p class="muted-para">而当你知晓它之时，亦是你与我们一同守护它之时。</p>
+
+    <hr/>
+
+    <!-- 三个折叠（标题居中；第三条为红色荧光） -->
+    <div class="fold">
+      <div class="fold-title glow-yellow" aria-expanded="false" data-target="#fold1">• “一团光辉内敛而规整。”</div>
+      <div id="fold1" class="fold-content">
+        <span class="fold-head">【本格】</span>
+        <p class="fold-body ben">以一个世界存在的核心物种的广泛性集体认知为标准，所有符合其认知范围的自然法则、常识定理、物质存在、历史记忆……被称为这个世界的【本格】概念。</p>
+        <p class="fold-body ben">而我们当下所处的这个世界的【本格】概念，就是以“人”的认知为基准诞生的。</p>
+        <p class="fold-body ben">若某些认知以任何方式超出这个概念范围，就会成为【神秘】的一部分。</p>
+        <p class="fold-body ben">它们可能以当前世界的知识和认知层次无法解读；也可能早已被大众和文明所遗忘；亦或许它们本身就不属于这个世界，是自外而来的“异格”概念。</p>
+        <p class="fold-body ben">建成与维系【本格】这一认知框架的基础，被称为【本源因子】。它是世界本身，亦是世界的创造者本身。</p>
+        <p class="fold-body ben">【本源因子】的存在维护着“世界”的稳定和安全，形成了隔绝“异格因子”和“异格概念”的屏障。本源因子应当恒久稳定，它的任何变化，都会导致【本格】的框架失去稳定。</p>
+        <p class="fold-body ben">而【本源因子】又来自于何处，究竟是怎样的存在……目前还尚未可知。</p>
+      </div>
+    </div>
+
+    <div class="fold">
+      <div class="fold-title glow-blue" aria-expanded="false" data-target="#fold2">• “一团光亮冰冷且锐利。”</div>
+      <div id="fold2" class="fold-content">
+        <span class="fold-head">【缄默法则】</span>
+        <p class="fold-body jian">沉默是午夜的浓雾，它遮蔽我们窥伺黑夜的视线，同时也隐去我们的形体不让黑夜看见。</p>
+        <p class="fold-body jian">为了维护世界【本格】的稳定，【神秘】及其相关的一切概念都必须保持沉默，创造出“迷雾”，不被普罗大众所意识到以及看穿。</p>
+        <p class="fold-body jian">在这一法则的约束下，一切涉及到【神秘】相关的内容，只能以神话、传说、故事、谣言、幻想、梦境……等虚构载体呈现，只能以【本格】认知框架内的形态被解读（无法解读的部分仍将被归为虚构）。</p>
+        <p class="fold-body jian">所有形式的传播与记录都会导致神秘性的歪曲和衰减。因此所有书面记录皆为“伪典”，所有传播媒介皆会劣化。</p>
+        <p class="fold-body jian">其力量的来源，推测应当来自于【原始黑暗】。</p>
+      </div>
+    </div>
+
+    <div class="fold">
+      <div class="fold-title glow-red" aria-expanded="false" data-target="#fold3">• “一团光芒漆黑却柔和。”</div>
+      <div id="fold3" class="fold-content">
+        <span class="fold-head">【原始黑暗】</span>
+        <p class="fold-body an">构成【宇宙】这一更大、更高、更广、更高维概念的核心因子，“根源的本质”。一切秩序与混乱的初始，一切喧嚣与沉默的源头，一切问题与秘密的躯壳，一切神秘的帷幕。令不应知晓的下沉，令不应出现的隐匿。失去黑暗，世界将没有秘密。</p>
+        <p class="fold-body an">经由祂的影响，存在于阴影上有了形体。“世界”铺陈开来，认知形成边际，从而对应【神秘】。</p>
+        <p class="fold-body an">【黑暗】与【母亲】一同守护着我们，注视着我们。祂守护着我们的梦境与秘密不被窥探，让它们保持无害；祂注视着那些在雾中亮起的灵性萤火，令它们保持微弱，以防止那光芒过分的照亮什么。</p>
+        <p class="fold-body an">但祂不总是温柔的。如果试图僭越祂构成的法则，亦将会被黑暗永远吞没。</p>
+
+        <hr/>
+        <p class="gain">【你获得了《三分之一真理回响：本源》。】</p>
+        <p class="gain">【你获得了一道《伤痕》。】</p>
+        <!-- 第二个“下一页”按钮在前 -->
+        <div class="btn-wrap"><a class="btn" id="btnNext2">【下一页】</a></div>
+
+        <!-- 然后才是分割线 + 两句“你获得了”（就在“漆黑却柔和”这部分下面） -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 第三屏（点击第二个“下一页”后出现结尾） -->
+  <section id="p3" class="fade" style="display:none;">
+    <p class="gold-ending">现在，你即将回到往昔的梦中。</p>
+    <p class="gold-ending">梦是无数的门，梦是无尽的路。梦的尽头有问题的答案，梦的彼端有渴望的具现。梦如此自由，梦无边无限。</p>
+    <p class="gold-ending">而你将在梦中回到【摇篮】，回到“约定”开始的地方，回到“真实”之中，回到【母亲】的光辉下，回到时代的洪流里，回到那属于你的故事的起点。</p>
+    <p class="gold-ending">祝你一路顺风，我的同胞，我的兄弟姐妹。</p>
+    <p class="gold-ending">祝你终将……得偿所愿。</p>
+    <div class="btn-wrap"><a class="btn" id="toLibrary">【前往【摇篮的书库】】</a></div>
+  </section>
+</main>
+
+<script>
+// 第一个“下一页”：显示 p2（不隐藏 p1）
+document.getElementById('btnNext1').addEventListener('click',e=>{
+  e.preventDefault();
+  const p2=document.getElementById('p2');
+  if(p2.style.display==='none'){p2.style.display='block';requestAnimationFrame(()=>p2.classList.add('on'));}
+});
+// 第二个“下一页”：显示 p3
+document.getElementById('btnNext2').addEventListener('click',e=>{
+  e.preventDefault();
+  const p3=document.getElementById('p3');
+  if(p3.style.display==='none'){p3.style.display='block';requestAnimationFrame(()=>p3.classList.add('on'));}
+});
+// 折叠开合 + 展开后滚动到屏幕中央
+document.querySelectorAll('.fold-title').forEach(el=>{
+  el.addEventListener('click',()=>{
+    const tgt=document.querySelector(el.dataset.target);
+    const expanded=el.getAttribute('aria-expanded')==='true';
+    el.setAttribute('aria-expanded',String(!expanded));
+    if(!expanded){
+      tgt.classList.add('on');
+      tgt.scrollIntoView({behavior:'smooth',block:'center'});
+    }else{
+      tgt.classList.remove('on');
+    }
+  });
+});
+// 跳转（按需替换）
+document.getElementById('toLibrary').addEventListener('click',e=>{
+  e.preventDefault();
+  window.location.href='index.html';
+});
+</script>
+</body>
+</html>

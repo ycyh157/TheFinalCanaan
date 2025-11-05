@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sabbath II - 时与砂</title>
+<style>
+:root{
+  --bg1:#101823;
+  --bg2:#0b1220;
+  --gold:#d4b448;
+  --silver:#dfe6f8;
+}
+html,body{
+  margin:0;padding:0;height:100%;
+  background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 100%);
+  color:var(--gold);
+  font-family:"Quicksand","Noto Sans SC","PingFang SC",sans-serif;
+  display:flex;justify-content:center;align-items:center;
+  overflow:hidden;
+}
+/* 🌌 星点背景 */
+.stars span{
+  position:absolute;width:2px;height:2px;background:#fff;opacity:.7;border-radius:50%;
+  animation:twinkle 6s infinite ease-in-out;
+}
+@keyframes twinkle{0%,100%{opacity:.3;}50%{opacity:.9;}}
+.stars span:nth-child(1){top:20%;left:25%;animation-delay:0s;}
+.stars span:nth-child(2){top:40%;left:70%;animation-delay:2s;}
+.stars span:nth-child(3){top:65%;left:50%;animation-delay:4s;}
+.stars span:nth-child(4){top:30%;left:80%;animation-delay:1s;}
+.stars span:nth-child(5){top:55%;left:15%;animation-delay:3s;}
+/* 🌠 流星 */
+.meteor{
+  position:absolute;width:2px;height:90px;
+  background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,0));
+  top:-100px;opacity:0;animation:fall 14s linear infinite;
+}
+@keyframes fall{
+  0%{opacity:0;transform:translateX(0) translateY(0) rotate(15deg);}
+  10%{opacity:1;}
+  100%{opacity:0;transform:translateX(150px) translateY(110vh) rotate(15deg);}
+}
+.meteor:nth-child(1){left:25%;animation-delay:5s;}
+.meteor:nth-child(2){left:75%;animation-delay:15s;}
+/* 顶部光雾 */
+.top-glow{
+  position:absolute;top:0;left:0;width:100%;height:50vh;
+  background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.12) 0%,rgba(255,255,255,0) 70%);
+  filter:blur(40px);opacity:.7;pointer-events:none;
+}
+/* 中心卡片布局：黄金视觉线 */
+.wrap{
+  width:100%;
+  display:flex;justify-content:center;z-index:2;
+  transform:translateY(-5vh);
+}
+.card{
+  text-align:center;background:rgba(10,14,22,.35);
+  padding:1.2rem;border-radius:12px;
+  box-shadow:0 0 10px rgba(212,180,72,.05);
+  backdrop-filter:blur(6px);max-width:460px;
+}
+/* ✨ Logo */
+img.logo{
+  width:110px;margin-bottom:.8rem;opacity:0;
+  filter:drop-shadow(0 0 6px rgba(212,180,72,.3));
+  animation:logoFade 2.5s ease-out forwards, logoGlow 6s ease-in-out infinite alternate;
+}
+@keyframes logoFade{to{opacity:.95;}}
+@keyframes logoGlow{
+  0%{filter:drop-shadow(0 0 6px rgba(212,180,72,.3));}
+  100%{filter:drop-shadow(0 0 14px rgba(212,180,72,.5));}
+}
+/* 标题与副标题间距对称 */
+h1{
+  color:var(--gold);
+  font-size:clamp(32px,4.5vw,56px);
+  font-weight:700;letter-spacing:.05em;
+  margin:0 0 .8rem;
+  text-shadow:0 0 12px rgba(212,180,72,.5);
+  animation:haloPulse 8s ease-in-out infinite alternate;
+}
+@keyframes haloPulse{
+  0%{text-shadow:0 0 10px rgba(212,180,72,.45);}
+  100%{text-shadow:0 0 55px rgba(212,180,72,.5);}
+}
+.sub{
+  color:var(--silver);margin:0;
+  text-shadow:0 0 12px rgba(223,230,248,.65);
+  font-weight:500;animation:silverGlow 6s ease-in-out infinite alternate;
+}
+@keyframes silverGlow{
+  0%{text-shadow:0 0 8px rgba(223,230,248,.45);}
+  100%{text-shadow:0 0 18px rgba(223,230,248,.65);}
+}
+/* 按钮 + 波纹 */
+.enter-btn{
+  display:inline-block;margin-top:.8rem;
+  padding:.6rem 1.6rem;color:var(--gold);
+  border:1px solid rgba(212,180,72,.6);border-radius:10px;
+  text-decoration:none;font-weight:600;position:relative;overflow:hidden;
+  transition:all .3s ease;
+}
+.enter-btn:hover{
+  background:rgba(212,180,72,.08);
+  border-color:rgba(212,180,72,.85);
+  box-shadow:0 0 10px rgba(212,180,72,.35);
+}
+.btn-ripple{
+  position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(circle at var(--x,50%) var(--y,50%),
+    rgba(212,180,72,.45) 0%,rgba(212,180,72,.25) 20%,rgba(212,180,72,.12) 40%,rgba(212,180,72,0) 60%);
+  transform:scale(.2);opacity:0;animation:rippleWave .6s ease-out forwards;mix-blend-mode:screen;
+}
+@keyframes rippleWave{
+  0%{transform:scale(.2);opacity:0;}
+  20%{transform:scale(.5);opacity:.55;}
+  100%{transform:scale(1.25);opacity:0;}
+}
+</style>
+</head>
+<body>
+<div class="top-glow"></div>
+<div class="stars">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+<div class="meteor"></div><div class="meteor"></div>
+<div class="wrap">
+  <section class="card">
+    <img class="logo" src="logo.svg" alt="Logo"/>
+    <h1>TheSabbathⅡ-时与砂</h1>
+    <p class="sub">“The Eternal Feminine draws us onward.”</p>
+    <a class="enter-btn" href="dream.html">【进入梦境】</a>
+  </section>
+</div>
+<script>
+(function(){
+  function addRipple(e){
+    const btn=e.currentTarget;
+    const rect=btn.getBoundingClientRect();
+    const x=((e.clientX-rect.left)/rect.width)*100;
+    const y=((e.clientY-rect.top)/rect.height)*100;
+    const ripple=document.createElement('span');
+    ripple.className='btn-ripple';
+    ripple.style.setProperty('--x',x+'%');
+    ripple.style.setProperty('--y',y+'%');
+    btn.querySelectorAll('.btn-ripple').forEach(n=>n.remove());
+    btn.appendChild(ripple);
+    ripple.addEventListener('animationend',()=>ripple.remove());
+  }
+  document.querySelectorAll('.enter-btn').forEach(el=>el.addEventListener('click',addRipple));
+})();
+</script>
+</body>
+</html>
