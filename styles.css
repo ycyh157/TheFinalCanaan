@@ -12,7 +12,7 @@ p{margin:.8em 0;color:var(--fg)}
 a{color:#c9d7ff;text-decoration:none;border-bottom:1px dashed var(--line)}
 a:hover{border-bottom-color:transparent}
 hr{border:0;border-top:1px solid var(--line);margin:24px 0}
-img,svg,video{max-width:100%;height:auto;display:block;margin:12px 0}
+img,svg,video{max-width:100%;height:auto;display:block;margin:12px auto;} /* auto 让块级元素水平居中 */
 button,.btn,input[type=button],input[type=submit],a.button{
   display:inline-block;background:linear-gradient(180deg,#20304a,#141d30);
   color:var(--fg);padding:10px 16px;border-radius:14px;border:1px solid var(--line);
