@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -10,72 +11,66 @@ body{
   margin:0;
   background:#0b1a2a;
   color:#cfd6e0;
-  font-family:"Noto Serif SC",serif;
+  font-family:"Microsoft YaHei","PingFang SC","Heiti SC","SimHei",sans-serif;
   text-align:center;
 }
 
-/* 主体 */
 .container{
   max-width:900px;
-  margin:80px auto;
-  padding:40px 20px;
+  margin:40px auto;
+  padding:20px 20px 40px;
 }
 
-/* 标题 */
 .title{
   color:#e0b84f;
-  font-size:28px;
-  letter-spacing:4px;
-  margin-bottom:20px;
+  font-size:36px;
+  font-weight:700;
+  letter-spacing:6px;
+  margin-bottom:18px;
 }
 
-/* 分割线 */
 .hr{
-  margin:30px auto;
+  margin:24px auto;
   height:1px;
   width:90%;
   background:linear-gradient(to right,transparent,#aaa,transparent);
 }
 
-/* 文本 */
 .text{
-  margin:12px 0;
-  line-height:1.8;
-  opacity:0.85;
+  margin:10px 0;
+  line-height:1.9;
+  color:#98a2ad;
+  font-style:italic;
 }
 
-/* 按钮 */
+.system{
+  color:#7c8591;
+  font-style:italic;
+  margin:16px 0;
+}
+
 .enter-btn{
   display:inline-block;
-  margin-top:30px;
+  margin-top:26px;
   padding:12px 28px;
   border:1px solid rgba(255,255,255,0.4);
   border-radius:10px;
   color:#fff;
   text-decoration:none;
   transition:0.25s;
+  font-style:normal;
 }
 
-/* hover 不改变风格，只加强 */
 .enter-btn:hover{
   background:rgba(255,255,255,0.08);
   box-shadow:0 0 12px rgba(255,255,255,0.25);
 }
 
-/* 轻微呼吸感 */
 .enter-btn:active{
   transform:scale(0.96);
 }
-
-/* 闪烁（非常轻） */
-.fade{
-  animation:fade 4s infinite;
-}
-@keyframes fade{
-  0%,100%{opacity:0.85}
-  50%{opacity:0.5}
-}
 </style>
+
 </head>
 
 <body>
@@ -84,7 +79,7 @@ body{
 
 <div class="title">“？？？”的房间</div>
 
-<div class="text fade">“嘘——”</div>
+<div class="text system">“嘘——”</div>
 
 <div class="hr"></div>
 
@@ -105,11 +100,10 @@ body{
 <div class="hr"></div>
 
 <a href="https://www.wolai.com/thefinalcanaan/fBen4jocewJ7GPZtuiDy9A"
-   target="_blank"
-   rel="noopener"
-   class="enter-btn">
-【进入？？？的房间】
-</a>
+target="_blank"
+rel="noopener"
+class="enter-btn">
+【进入？？？的房间】 </a>
 
 </div>
 
