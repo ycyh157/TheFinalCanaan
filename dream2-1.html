@@ -69,6 +69,55 @@ body{
 .enter-btn:active{
   transform:scale(0.96);
 }
+
+/* ===== 银白动态“歌”——修正版 ===== */
+.chant{
+  margin:40px 0 10px;
+}
+
+/* 通用（两行统一） */
+.chant-title,
+.chant-text{
+  font-style:italic;
+  font-weight:700;          /* ← 两行都加粗 */
+  line-height:1.8;          /* ← 恢复行距 */
+  letter-spacing:1px;
+
+background:linear-gradient(
+  90deg,
+  #b8c4d9 0%,
+  #dfe9ff 25%,
+  #8fa3c8 50%,
+  #dfe9ff 75%,
+  #b8c4d9 100%
+);
+
+  background-size:200% 100%;
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  animation:shine 6s linear infinite;  /* ← 放慢一点 */
+
+  text-shadow:0 0 6px rgba(255,255,255,0.08); 
+}
+
+/* 第一行（标题更大） */
+.chant-title{
+  font-size:24px;
+  margin-bottom:12px;
+}
+
+/* 第二行（稍小但更“厚”） */
+.chant-text{
+  font-size:18px;
+}
+
+/* 动态渐变 */
+@keyframes shine{
+  0%{ background-position:0% 50%; }
+  100%{ background-position:200% 50%; }
+}
 </style>
 
 </head>
@@ -98,6 +147,13 @@ body{
 <div class="text">……</div>
 
 <div class="hr"></div>
+
+<div class="chant">
+  <div class="chant-title">一之歌：皆需聆听母亲与兄长之教诲。</div>
+  <div class="chant-text">
+    天有屏帷，摇篮有诫，先民有血，而吾亦有一言——
+  </div>
+</div>
 
 <a href="https://www.wolai.com/thefinalcanaan/fBen4jocewJ7GPZtuiDy9A"
 target="_blank"
