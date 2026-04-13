@@ -15,14 +15,12 @@ body{
   text-align:center;
 }
 
-/* ===== 整体上移（关键）===== */
 .container{
   max-width:900px;
-  margin:40px auto;   /* 原来80，改40 */
+  margin:40px auto;
   padding:20px 20px 40px;
 }
 
-/* 标题 */
 .title{
   color:#e0b84f;
   font-size:36px;
@@ -31,7 +29,6 @@ body{
   margin-bottom:18px;
 }
 
-/* 分割线 */
 .hr{
   margin:24px auto;
   height:1px;
@@ -39,30 +36,72 @@ body{
   background:linear-gradient(to right,transparent,#aaa,transparent);
 }
 
-/* ===== 正文（P3层级：较暗灰）===== */
 .text{
   margin:10px 0;
   line-height:1.9;
-  color:#98a2ad;     /* ↓压暗，解决“太亮”问题 */
+  color:#98a2ad;
   font-style:italic;
 }
 
-/* ===== 系统提示（P4层级：更暗）===== */
 .system{
   color:#7c8591;
   font-style:italic;
   margin:16px 0;
 }
 
-/* ===== 回环整体（更暗一层）===== */
+/* ===== chant ===== */
+.chant{
+  margin:40px 0 10px;
+}
+
+.chant-title,
+.chant-text{
+  font-style:italic;
+  font-weight:700;
+  line-height:1.8;
+  letter-spacing:1px;
+
+  background:linear-gradient(
+    90deg,
+    #b8c4d9 0%,
+    #dfe9ff 25%,
+    #8fa3c8 50%,
+    #dfe9ff 75%,
+    #b8c4d9 100%
+  );
+
+  background-size:200% 100%;
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  animation:shine 6s linear infinite;
+
+  text-shadow:0 0 6px rgba(255,255,255,0.08);
+}
+
+.chant-title{
+  font-size:24px;
+  margin-bottom:12px;
+}
+
+.chant-text{
+  font-size:18px;
+}
+
+@keyframes shine{
+  0%{ background-position:0% 50%; }
+  100%{ background-position:200% 50%; }
+}
+
+/* ===== 回环 ===== */
 .after{
   margin-top:36px;
   line-height:1.9;
-  color:#505762;     /* 比 system 再暗一点 */
+  color:#505762;
   font-style:italic;
 }
 
-/* 折叠 */
 details summary{
   list-style:none;
   cursor:pointer;
@@ -71,7 +110,22 @@ details summary::-webkit-details-marker{
   display:none;
 }
 
-/* ===== 折叠内容（最暗层）===== */
+.fold-hint{
+  cursor:pointer;
+}
+
+.fold-hint::after{
+  content:" ▸";
+  font-size:14px;
+  color:#7c8591;
+  transition:0.25s;
+  display:inline-block;
+}
+
+details[open] .fold-hint::after{
+  transform:rotate(90deg);
+}
+
 .fold-content{
   margin-top:12px;
   color:#565e68 !important;
@@ -90,8 +144,7 @@ details summary::-webkit-details-marker{
   color:#fff;
   text-decoration:none;
   transition:0.25s;
-
-  font-style:normal;   
+  font-style:normal;
 }
 
 .enter-btn:hover{
@@ -101,24 +154,6 @@ details summary::-webkit-details-marker{
 
 .enter-btn:active{
   transform:scale(0.96);
-}
-
-/* ===== 折叠提示箭头（贴文字版） ===== */
-.fold-hint{
-  cursor:pointer;
-}
-
-.fold-hint::after{
-  content:" ▸";   /* 前面带空格，贴在文字后 */
-  font-size:14px;
-  color:#7c8591;
-  transition:0.25s;
-  display:inline-block;
-}
-
-/* 展开旋转 */
-details[open] .fold-hint::after{
-  transform:rotate(90deg);
 }
 </style>
 
@@ -150,6 +185,15 @@ details[open] .fold-hint::after{
 
 <div class="hr"></div>
 
+<!-- chant -->
+
+<div class="chant">
+  <div class="chant-title">一之歌：皆需聆听母亲与兄长之教诲。</div>
+  <div class="chant-text">
+    天有屏帷，摇篮有诫，先民有血，而吾亦有一言——
+  </div>
+</div>
+
 <a href="https://www.wolai.com/thefinalcanaan/fBen4jocewJ7GPZtuiDy9A"
 target="_blank"
 rel="noopener"
@@ -164,17 +208,12 @@ class="enter-btn">
   <summary class="system fold-hint">【你获得了《？？？影响：回环》。】</summary>
 
   <div class="fold-content">
-
-```
-<p>
-——过去、现在、未来。方才、此刻、即将。时空是什么形状，时空是否有形状？  
-前进是后退还是上升，坠落是扬起还是翻腾？  
-似蛇非蛇之物缠绕吞尾，我们的旅程从何处开始，又何时结束？
-</p>
-
-<p>——此影响无法被消除。</p>
-```
-
+    <p>
+    ——过去、现在、未来。方才、此刻、即将。时空是什么形状，时空是否有形状？  
+    前进是后退还是上升，坠落是扬起还是翻腾？  
+    似蛇非蛇之物缠绕吞尾，我们的旅程从何处开始，又何时结束？
+    </p>
+    <p>——此影响无法被消除。</p>
   </div>
 </details>
 
