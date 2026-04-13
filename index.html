@@ -62,7 +62,6 @@ body::before{
   transform:rotate(35deg);
   filter:blur(0.6px);
 }
-
 .meteor::before{
   content:"";
   position:absolute;
@@ -71,10 +70,7 @@ body::before{
   width:6px;height:6px;
   background:white;
   border-radius:50%;
-  box-shadow:
-    0 0 6px white,
-    0 0 12px white,
-    0 0 18px rgba(255,255,255,.6);
+  box-shadow:0 0 6px white,0 0 12px white,0 0 18px rgba(255,255,255,.6);
 }
 
 /* ===== 顶部光 ===== */
@@ -95,7 +91,7 @@ body::before{
   align-items:center;
 }
 
-/* ===== 卡片 ===== */
+/* ===== 卡片（漂浮但不干扰logo） ===== */
 .card{
   text-align:center;
   background:rgba(10,14,22,.5);
@@ -105,26 +101,47 @@ body::before{
   backdrop-filter:blur(10px);
   box-shadow:0 0 40px rgba(0,0,0,.4);
   max-width:480px;
-  animation:float 6s ease-in-out infinite;
-}
-@keyframes float{
-  0%,100%{ transform:translateY(0); }
-  50%{ transform:translateY(-14px); }
+
+  animation:float 6s ease-in-out infinite, cardIn 1.8s ease-out forwards;
 }
 
-/* ===== LOGO ===== */
+/* ⭐ 改这里：不用 transform */
+@keyframes float{
+  0%,100%{ margin-top:0; }
+  50%{ margin-top:-14px; }
+}
+
+@keyframes cardIn{
+  0%{ box-shadow:0 0 0 rgba(212,180,72,0); }
+  60%{ box-shadow:0 0 30px rgba(212,180,72,.25); }
+  100%{ box-shadow:0 0 40px rgba(0,0,0,.4); }
+}
+
+/* ===== LOGO（入场，不会消失） ===== */
 .logo{
   width:120px;
   margin-bottom:1rem;
-  animation:breathe 4s ease-in-out infinite, glow 6s ease-in-out infinite alternate;
+
+  opacity:0;
+  transform:scale(0.8);
+
+  animation:logoIn 1.8s ease-out forwards;
 }
-@keyframes breathe{
-  0%,100%{ transform:scale(1); }
-  50%{ transform:scale(1.08); }
-}
-@keyframes glow{
-  0%{ filter:drop-shadow(0 0 6px rgba(212,180,72,.25)); }
-  100%{ filter:drop-shadow(0 0 18px rgba(212,180,72,.55)); }
+
+@keyframes logoIn{
+  0%{
+    opacity:0;
+    transform:scale(0.8);
+    filter:blur(6px);
+  }
+  60%{
+    opacity:1;
+    transform:scale(1.05);
+    filter:blur(0);
+  }
+  100%{
+    transform:scale(1);
+  }
 }
 
 /* ===== 标题 ===== */
@@ -133,29 +150,26 @@ h1{
   font-size:clamp(32px,4.5vw,56px);
   font-weight:700;
   margin:0 0 1rem;
-
   text-shadow:0 0 18px rgba(212,180,72,.45);
-
   animation:titleBreath 6s ease-in-out infinite alternate;
 }
 
-.title-en{
-  font-family:"Cinzel", serif;
-}
+.title-en{font-family:"Cinzel", serif;}
+.title-cn{font-family:"Noto Serif SC", serif;}
 
-.title-cn{
-  font-family:"Noto Serif SC", serif;
+@keyframes titleBreath{
+  0%{ transform:scale(1); text-shadow:0 0 15px rgba(212,180,72,.35);}
+  100%{ transform:scale(1.02); text-shadow:0 0 28px rgba(212,180,72,.5);}
 }
 
 /* ===== 副标题 ===== */
 .sub{
   color:var(--silver);
   margin:0 0 1.4rem;
-
   text-shadow:0 0 12px rgba(223,230,248,.6);
 }
 
-/* ===== 按钮 ===== */
+/* ===== 按钮（呼吸） ===== */
 .enter-btn{
   display:inline-block;
   margin-top:2.4rem;
@@ -165,7 +179,15 @@ h1{
   border-radius:10px;
   text-decoration:none;
   font-weight:600;
+
+  animation:btnBreath 3.5s ease-in-out infinite;
 }
+
+@keyframes btnBreath{
+  0%,100%{ box-shadow:0 0 6px rgba(212,180,72,.15); }
+  50%{ box-shadow:0 0 18px rgba(212,180,72,.4); }
+}
+
 .enter-btn:hover{
   background:rgba(212,180,72,.08);
   box-shadow:0 0 14px rgba(212,180,72,.35);
@@ -192,7 +214,6 @@ h1{
 </div>
 
 <script>
-/* ⭐ 星星 */
 const stars = document.getElementById("stars");
 for(let i=0;i<100;i++){
   const s=document.createElement("div");
@@ -206,7 +227,6 @@ for(let i=0;i<100;i++){
   stars.appendChild(s);
 }
 
-/* 🌠 随机流星 */
 function createMeteor(){
   const m=document.createElement("div");
   m.className="meteor";
@@ -219,26 +239,24 @@ function createMeteor(){
 
   document.body.appendChild(m);
 
-m.animate([
-  { transform:`translate(0,0) rotate(35deg)`, opacity:1 },
-  { transform:`translate(${220+Math.random()*120}px,${420+Math.random()*200}px) rotate(35deg)`, opacity:0 }
-],{
-  duration:8000+Math.random()*4000,
-  easing:"cubic-bezier(0.2,0.6,0.2,1)"
-});
+  m.animate([
+    { transform:`translate(0,0) rotate(35deg)`, opacity:1 },
+    { transform:`translate(${220+Math.random()*120}px,${420+Math.random()*200}px) rotate(35deg)`, opacity:0 }
+  ],{
+    duration:6000+Math.random()*3000,
+    easing:"cubic-bezier(0.2,0.6,0.2,1)"
+  });
 
-  setTimeout(()=>m.remove(),2000);
+  setTimeout(()=>m.remove(),3000);
 }
 
-/* 先来一颗（立即） */
 createMeteor();
 
-/* 随机触发 */
 function loopMeteor(){
-  if(Math.random()>0.7){
+  if(Math.random()>0.75){
     createMeteor();
   }
-  setTimeout(loopMeteor, 1500 + Math.random()*3000);
+  setTimeout(loopMeteor, 2000 + Math.random()*3000);
 }
 loopMeteor();
 </script>
