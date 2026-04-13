@@ -14,12 +14,14 @@ body{
   text-align:center;
 }
 
+/* 主体 */
 .container{
   max-width:900px;
   margin:80px auto;
   padding:40px 20px;
 }
 
+/* 标题 */
 .title{
   color:#e0b84f;
   font-size:28px;
@@ -27,6 +29,7 @@ body{
   margin-bottom:20px;
 }
 
+/* 分割线 */
 .hr{
   margin:30px auto;
   height:1px;
@@ -34,12 +37,14 @@ body{
   background:linear-gradient(to right,transparent,#aaa,transparent);
 }
 
+/* 文本 */
 .text{
   margin:12px 0;
   line-height:1.8;
   opacity:0.85;
 }
 
+/* 按钮 */
 .enter-btn{
   display:inline-block;
   margin-top:30px;
@@ -51,24 +56,24 @@ body{
   transition:0.25s;
 }
 
+/* hover 不改变风格，只加强 */
 .enter-btn:hover{
   background:rgba(255,255,255,0.08);
   box-shadow:0 0 12px rgba(255,255,255,0.25);
 }
 
+/* 轻微呼吸感 */
+.enter-btn:active{
+  transform:scale(0.96);
+}
+
+/* 闪烁（非常轻） */
 .fade{
   animation:fade 4s infinite;
 }
 @keyframes fade{
   0%,100%{opacity:0.85}
   50%{opacity:0.5}
-}
-
-/* 回环内容稍微弱一点层级 */
-.after{
-  margin-top:40px;
-  opacity:0.7;
-  line-height:1.9;
 }
 </style>
 </head>
@@ -105,35 +110,6 @@ body{
    class="enter-btn">
 【进入？？？的房间】
 </a>
-
-<!-- ===== 以下为新增部分 ===== -->
-
-<div class="after">
-
-<p>【你获得了《？？？影响：回环》。】</p>
-
-<p>
-——过去、现在、未来。方才、此刻、即将。  
-时空是什么形状，时空是否有形状？  
-前进是后退还是上升，坠落是扬起还是翻腾？  
-似蛇非蛇之物缠绕吞尾，我们的旅程从何处开始，又何时结束？
-</p>
-
-<p>——此影响无法被消除。</p>
-
-<p>………………</p>
-<p>…………</p>
-<p>……</p>
-
-<p>
-【天空很高，星辰硕大无朋；海洋很远，雾霭与大地连成一片。它们都试图让彼此成为一体。】
-</p>
-
-<p>【你即将“醒来”？？？——】</p>
-
-<a href="dream3.html" class="enter-btn">【下一个梦】</a>
-
-</div>
 
 </div>
 
