@@ -66,6 +66,29 @@ hr{border:none;height:1px;margin:18px 0 22px;background:linear-gradient(90deg,tr
 .fold-body.ben{color:var(--c-ben);}  /* 本格 柔金 */
 .fold-body.jian{color:var(--c-jian);} /* 缄默 淡青 */
 .fold-body.an{color:var(--c-an);}     /* 原始黑暗 暗红紫 */
+.breathing-btn{
+animation:buttonBreath 4s ease-in-out infinite;
+}
+
+@keyframes buttonBreath{
+0%{
+transform:scale(1);
+filter:brightness(1);
+box-shadow:0 0 0 rgba(216,191,102,0);
+}
+
+50%{
+transform:scale(1.03);
+filter:brightness(1.18);
+box-shadow:0 0 16px rgba(216,191,102,.28);
+}
+
+100%{
+transform:scale(1);
+filter:brightness(1);
+box-shadow:0 0 0 rgba(216,191,102,0);
+}
+}
 </style>
 </head>
 <body>
@@ -139,7 +162,7 @@ hr{border:none;height:1px;margin:18px 0 22px;background:linear-gradient(90deg,tr
     <p class="gold-ending">而你将在梦中回到【摇篮】，回到“约定”开始的地方，回到“真实”之中，回到【母亲】的光辉下，回到时代的洪流里，回到那属于你的故事的起点。</p>
     <p class="gold-ending">祝你一路顺风，我的同胞，我的兄弟姐妹。</p>
     <p class="gold-ending">祝你终将……得偿所愿。</p>
-    <div class="btn-wrap"><a class="btn" id="toLibrary">【开启《长子的来信》】</a></div>
+    <div class="btn-wrap"><a class="btn breathing-btn" id="toLibrary">【开启《长子的来信》】</a></div>
   </section>
 </main>
 
