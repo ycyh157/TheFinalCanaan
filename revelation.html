@@ -71,26 +71,12 @@ hr{border:none;height:1px;margin:18px 0 22px;background:linear-gradient(90deg,tr
 <body>
 <main class="page">
   <h1>《████的启示录》</h1>
-  <div class="sub">第一页</div>
   <hr/>
 
-  <!-- 第一屏（保留在页上） -->
-  <section id="p1">
-    <p class="gold-para">很荣幸见到你，我的同胞。这片大地未来的救主，亦或是……故乡的毁灭者。</p>
-    <p class="gold-para">当璀璨的恩典笼罩永岁蔷薇盛放的英伯伦、嚼食巨人尸骸的罗穆路斯高举黄金的酒杯、牧群狂奔在阿特米特高原闪光的银湖畔、最后的绿洲亚特兰亚姆在芬芳馥郁的硝烟中走向分裂之际，荒野正伴随大地的扬升，矗立起一座座刻满自由诗章的高塔……同胞，你的时代即将来临。</p>
-    <p class="gold-para"><strong>他们不会知晓。普通人不会知晓：</strong></p>
-    <p class="gold-para">世界的秘密如同子夜时分降临大地的浓雾般将我们笼罩。而在那缭绕雾气之后，我们的时代与命运正如同我们的生命一般，在逐渐走向衰亡。</p>
-    <p class="gold-para"><strong>他们不会告诉你。这个时代不会告诉你：</strong></p>
-    <p class="gold-para">我们安睡在母亲的怀抱之中，我们躲藏在家园的屋舍之内。母亲为我们抵挡威胁，长兄为我们阻拦风雨，我们一无所知，我们平凡至死。</p>
-    <p class="gold-para">可是你，我的同胞，此刻正伫立在这座殿堂之中的你，此刻已然揭开启示的你——这片大地未来的救主，亦或是故乡的毁灭者。你已聆听到母亲梦中的低吟，你已知晓长兄隐瞒的秘密。他们不会告诉你，这个世界不会告诉你，但你仍旧选择告诉你自己：</p>
-    <p class="gold-para"><strong>你将获得此世未有之真实，你将知悉此世未解之隐秘。你将踏入迷雾，你将凿开大地，你将在螺旋的梯上攀升，你将最终走向万千回响齐奏乐章的终极。</strong></p>
-    <p class="gold-para">待到那时，我们还会相见。以最终末的你的姿态，以最真实的我的面目，我们将在那崇高的殿堂再度相会。届时，所有谜题都将得到解答，一切闭锁之门都将被洞开。</p>
-    <p class="gold-para">我——由衷期待着那一日的到来。</p>
-    <div class="btn-wrap"><a class="btn" id="btnNext1">【下一页】</a></div>
-  </section>
+
 
   <!-- 第二屏（点击第一个“下一页”出现） -->
-  <section id="p2" class="fade" style="display:none;">
+  <section id="p2">
     <p class="muted-para">嘘——请保持沉默。</p>
     <p class="muted-para">我即将为你呈现的，是你绝无可能在“真实”中获取到的“真实”。它不会出现在任何一本伪典之中。因此也请你保持绝对的沉默，在“神秘”得以在你的指尖流动之前，如同忘记它一般地将它封存。</p>
     <p class="muted-para">未来你将与更多知识邂逅，你将直面更多“真实”，但须铭记：它们永远不是完全真实的，它们必然是存在问题而被歪曲的。而你此刻所获得的“真实”，将会是你校准一切的标杆，一切知识的基准，一切事物的原貌，一切秘密的起点。</p>
@@ -153,16 +139,12 @@ hr{border:none;height:1px;margin:18px 0 22px;background:linear-gradient(90deg,tr
     <p class="gold-ending">而你将在梦中回到【摇篮】，回到“约定”开始的地方，回到“真实”之中，回到【母亲】的光辉下，回到时代的洪流里，回到那属于你的故事的起点。</p>
     <p class="gold-ending">祝你一路顺风，我的同胞，我的兄弟姐妹。</p>
     <p class="gold-ending">祝你终将……得偿所愿。</p>
-    <div class="btn-wrap"><a class="btn" id="toLibrary">【开启《长子的来信》】</a></div>
+    <div class="btn-wrap"><a class="btn" id="toLibrary">【开启【长子的来信】】</a></div>
   </section>
 </main>
 
 <script>
-// 第一个“下一页”：显示 p2（不隐藏 p1）
-document.getElementById('btnNext1').addEventListener('click',e=>{
-  e.preventDefault();
-  const p2=document.getElementById('p2');
-  if(p2.style.display==='none'){p2.style.display='block';requestAnimationFrame(()=>p2.classList.add('on'));}
+
 });
 // 第二个“下一页”：显示 p3
 document.getElementById('btnNext2').addEventListener('click',e=>{
@@ -192,4 +174,3 @@ document.getElementById('toLibrary').addEventListener('click',e=>{
 </script>
 </body>
 </html>
-
